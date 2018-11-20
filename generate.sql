@@ -21,7 +21,7 @@ USE `bosart` ;
 DROP TABLE IF EXISTS `bosart`.`location` ;
 
 CREATE TABLE IF NOT EXISTS `bosart`.`location` (
-  `location_id` INT NOT NULL,
+  `location_id` INT NOT NULL AUTO_INCREMENT,
   `neighborhood` VARCHAR(50) NOT NULL,
   `address` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`location_id`))
@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bosart`.`size` ;
 
 CREATE TABLE IF NOT EXISTS `bosart`.`size` (
-  `size_id` INT NOT NULL,
+  `size_id` INT NOT NULL AUTO_INCREMENT,
   `size` ENUM('small', 'medium', 'large') NOT NULL,
   PRIMARY KEY (`size_id`))
 ENGINE = InnoDB;
@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bosart`.`public_art` ;
 
 CREATE TABLE IF NOT EXISTS `bosart`.`public_art` (
-  `public_art_id` INT NOT NULL,
+  `public_art_id` INT NOT NULL AUTO_INCREMENT,
   `existence` TINYINT NOT NULL,
   `time` DATETIME NULL,
   `description` VARCHAR(300) NULL,
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bosart`.`genre` ;
 
 CREATE TABLE IF NOT EXISTS `bosart`.`genre` (
-  `genre_id` INT NOT NULL,
+  `genre_id` INT NOT NULL AUTO_INCREMENT,
   `medium` VARCHAR(30) NULL,
   PRIMARY KEY (`genre_id`))
 ENGINE = InnoDB;
@@ -87,7 +87,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bosart`.`artist` ;
 
 CREATE TABLE IF NOT EXISTS `bosart`.`artist` (
-  `artist_id` INT NOT NULL,
+  `artist_id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(30) NULL,
   `lastname` VARCHAR(30) NULL,
   `biography` VARCHAR(300) NULL,
