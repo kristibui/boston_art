@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
+
+        <meta charset="UTF-8">
+
+	<title>Submit</title>
+
+
+</head>
+
+<body>
+
+	<!-- Jumbotron -->
+	<div class="jumbotron text-center">
+		<h1>boston public art</h1>
+		<p>Discover new art in Boston, completely free.</p>
+		<p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
+	</div>
+
+
+	<!-- Submit -->
+	<div class="container-fluid">
+
+	<div class="row">
+
+		<div id="submit" class="col-md-8">
+			<h2>submit new public art</h2>
+			<div class="row">
+				<div class="col-md-12" style="padding-bottom:10px">
+					<h4>Upload image</h4>
+					<input class="form-control" id="image" name="Upload image file" type="file">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12" style="padding-bottom:10px;">
+					<h4>Description</h4>
+					<textarea class="form-control" id="description" name="description" placeholder="Description" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12" style="padding-bottom:10px;">
+					<h4>Location</h4>
+					<input class="form-control" id="location" name="location" placeholder="location" type="text" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12" style="padding-bottom:30px;">
+				<button class="btn btn-primary pull-right" type="submit">Submit</button>
+				</div>
+			</div>	
+
+		</div>
+
+		<!-- How to Submit -->
+		<div class="col-md-4" style="padding-bottom:30px;">
+		
+			<h3>How to submit:</h3>
+			<p>Liqui occus assint et ari diatetus sanis expliquiati reperfe riorene caborecto vid entur re dolorem harunt parit, omnim et earit, nobist que lamenis estiunt eum asperat litat quiatem et aut aliquo doluptatio. Is venihilita quam ratur sequist quiat des autatur?<br>
+Minto que nus abo. Excea voluptat modis eum- qui assi dit venihic aepelisci id eatquatur sam, aut qui con escid quiscimin renis eos dolupta- tiHarum rem quaesto iliquas re si doluptaspid modit unt arum endi</p>
+
+		</div>
+
+	</div>
+
+
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="container-fluid bg-4 text-center">
+		<p>© boston art 2018 | all rights reserved</P.
+	</footer>
+
+</body>
+
+
+
+</html>

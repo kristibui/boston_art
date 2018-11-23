@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+	<meta charset="UTF-8">
+	<title>Home</title>
+</head>
+<!-- Body -->
+<body>
+
+	<!-- Jumbotron -->
+	<div class="jumbotron text-center">
+	
+		<h1>boston public art</h1>
+		<p>Discover new art in Boston, completely free.</p>
+		<p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
+
+	</div>
+
+	<!-- TODO: Once DB is set up, will need to loop and insert DB info -->
+
+	<!-- Navigation bar -->
+<!--
+	<div class="container-fluid">
+	<div class="row">
+		<div id="navbar" class="col-md-12" style="background-color:white;">
+			<h3>This is where the navigation bar/toggle will go!</h3>
+		</div>
+	</div>
+	</div>
+-->
+	<!-- Artist information -->
+	
+	{% if result %}
+
+	{% for row in result %}
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" style="padding-bottom:30px; padding-left:30px;">
+		<h3><b>{{ row[1] }}</b></h3>
+	
+			<div class="row">	
+			<div id="artist_photo" class="col-md-6">
+
+			<img src="{{ url_for('static', filename='boston.jpg') }}">
+
+			</div>
+			<div id="artist_descr" class="col-md-6" style="padding-left:30px; padding-right:30px;">
+				<h4>By {{ row[5] }} {{ row[6] }}</h4>
+				<h5><i class="fas fa-map-marker-alt"></i> {{ row[3] }}</h5>
+				<h5>Find it at the {{ row[2] }} neighborhood</h5><br>
+				<h5><b>Description</b></h5>
+				<p>Liqui occus assint et ari diatetus sanis expliquiati reperfe riorene caborecto vid entur re dolorem harunt parit, omnim et earit, nobist que lamenis estiunt eum asperat litat quiatem et aut aliquo doluptatio. Is venihilita quam ratur sequist quiat des autatur?
+Minto que nus abo. Excea voluptat modis eum- qui assi dit venihic aepelisci id eatquatur sam, aut qui con escid quiscimin renis eos dolupta- tiHarum rem quaesto iliquas re si doluptaspid modit unt arum endi</p><br>
+
+				<h5>Created on: {{ row[0] }}</h5>
+				<h5>Art features: {{ row[4] }} size, {{ row[7] }} medium</h5>
+
+			</div>
+			</div>		
+
+		</div>
+	</div>
+	</div>
+	
+	{% endfor %}	
+	{% endif %}
+
+<!--
+	<br><br>
+	<center><h2>Check out this dope ass placeholder table</h2></center>
+	<table class="table" id="painting" style="width:100%">
+
+	{% if result %}
+	<thead>
+    	<tr>
+        	<th>Painting ID</th>
+        	<th>Title</th>
+        	<th>Year</th>
+		<th>Artist ID</th>
+    	</tr>
+	</thead>
+	<tbody>
+    	{% for row in result %}
+    	<tr>
+        	<td> {{ row[0] }}</td>
+        	<td> {{ row[1] }}</td>
+        	<td> {{ row[2] }}</td>
+		<td> {{ row[3] }}</td>
+    	</tr>
+    	{% endfor %}
+    	{% endif %}
+	</tbody>
+	</table>
+-->
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+	<p>© boston art 2018 | all rights reserved</p>
+</footer>
+
+
+</body>
+</html>

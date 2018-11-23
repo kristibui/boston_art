@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>About</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
+
+        <meta charset="UTF-8">
+</head>
+
+<!-- Body -->
+<body>
+
+	 <!-- Jumbotron -->
+        <div class="jumbotron text-center">
+
+                <h1>boston public art</h1>
+                <p>Discover new art in Boston, completely free.</p>
+                <p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
+
+        </div>
+
+
+	<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-8">
+			<h2>about</h2>
+	
+			<p>This is a webapp where you can discover new public art in Boston. [...]<br> Built for the final project of <i>Fall 2018 CS3200 Database Design</i> at Northeastern University.</p>
+		</div>
+
+		<div class="col-md-4" style="background-color:lavender;">
+
+			<h3>Our photos (?) will go here?</h3>
+		</div> 
+
+	</div>
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="container-fluid bg-4 text-center">
+        	<p>© boston art 2018 | all rights reserved</p>
+	</footer>
+
+</html>

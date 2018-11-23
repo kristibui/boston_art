@@ -1,0 +1,59 @@
+body {
+	background-color: lavender;
+}
+
+.jumbotron {
+
+	position: relative;
+	background-size: cover;
+	background-color: #949ff7;
+	color: #FFFFFF;
+}
+
+a {
+	color: #dcdff9;
+}
+
+h1 {
+	color: #000000;
+	font-family: "Didot";
+}
+
+h2 {
+	color: #000000;
+	font-family: "Didot";
+}
+
+h3 {
+	font-family: "Didot";
+}
+
+h4 {
+	font-family: "Didot";
+}
+
+p {
+	font-family: "Helvetica Neue";
+}
+
+.col-md-4 {
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.col-md-8 {
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.bg-4 {
+	background-color: #949ff7;
+	color: #FFFFFF;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+img {
+
+	height: 350px;
+}
