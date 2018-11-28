@@ -28,16 +28,34 @@
 	<div class="container-fluid">
 	<div class="row">
 
-		<div class="col-md-8">
-			<h2>about</h2>
-	
-			<p>This is a webapp where you can discover new public art in Boston. [...]<br> Built for the final project of <i>Fall 2018 CS3200 Database Design</i> at Northeastern University.</p>
+		<div class="col-md-12" style="padding-left: 50px; padding-bottom: 30px;">
+			<h2><b>about</b></h2>
+			<br>	
+			<p>This is a web application where you can discover new public art in the Greater Boston Area. Learn more about the art created in the Boston area and what works of art you can discover in the different neighborhoods in this city.<br><br>
+			Built as the final project of <i>Fall 2018 CS3200 Database Design</i> at Northeastern University.</p>
+		</div>
+	</div>
+	</div>
+
+	<div class="container-fluid">
+	<div class="row">
+
+		<div id="about_cont" class="col-md-3">
+			<img id="about_photo" src="{{ url_for('static', filename='10.jpg') }}">
 		</div>
 
-		<div class="col-md-4" style="background-color:lavender;">
+		<div id="about_cont" class="col-md-3">
+			<img id="about_photo" src="{{ url_for('static', filename='13.jpg') }}">
+		</div>
 
-			<h3>Our photos (?) will go here?</h3>
-		</div> 
+		<div id="about_photo" class="col-md-3">
+			<img id="about_photo" src="{{ url_for('static', filename='27.jpg') }}">
+		</div>		
+
+		<div id="about_photo" class="col-md-3">
+			<img id="about_photo" src="{{ url_for('static', filename='11.jpg') }}">
+		</div>
+
 
 	</div>
 	</div>
@@ -47,5 +65,5 @@
 	<footer class="container-fluid bg-4 text-center">
         	<p>© boston art 2018 | all rights reserved</p>
 	</footer>
-
+</body>
 </html>

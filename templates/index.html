@@ -21,7 +21,7 @@
 	
 		<h1>boston public art</h1>
 		<p>Discover new art in Boston, completely free.</p>
-		<p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
+		<p><a id="art_img" href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
 
 	</div>
 
@@ -48,9 +48,9 @@
 		<h3><b>{{ row[1] }}</b></h3>
 	
 			<div class="row">	
-			<div id="artist_photo" class="col-md-6">
+			<div class="col-md-6">
 
-			<img src="{{ url_for('static', filename='boston.jpg') }}">
+			<img id="art_img" src="{{ url_for('static', filename='boston.jpg') }}">
 
 			</div>
 			<div id="artist_descr" class="col-md-6" style="padding-left:30px; padding-right:30px;">
@@ -58,9 +58,9 @@
 				<h5><i class="fas fa-map-marker-alt"></i> {{ row[3] }}</h5>
 				<h5>Find it at the {{ row[2] }} neighborhood</h5><br>
 				<h5><b>Description</b></h5>
-				<p>Liqui occus assint et ari diatetus sanis expliquiati reperfe riorene caborecto vid entur re dolorem harunt parit, omnim et earit, nobist que lamenis estiunt eum asperat litat quiatem et aut aliquo doluptatio. Is venihilita quam ratur sequist quiat des autatur?
-Minto que nus abo. Excea voluptat modis eum- qui assi dit venihic aepelisci id eatquatur sam, aut qui con escid quiscimin renis eos dolupta- tiHarum rem quaesto iliquas re si doluptaspid modit unt arum endi</p><br>
-
+				
+				<p>{{ row [8] }}</p><br>
+				
 				<h5>Created on: {{ row[0] }}</h5>
 				<h5>Art features: {{ row[4] }} size, {{ row[7] }} medium</h5>
 

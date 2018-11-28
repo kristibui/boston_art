@@ -3,13 +3,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-select_public_art_query = ("SELECT time, title, neighborhood, address, size, firstname, lastname, medium from public_art join location using (location_id) join size using (size_id) join public_art_has_artist using (public_art_id) join artist using (artist_id) join public_art_has_genre using (public_art_id) join genre using (genre_id)")
+select_public_art_query = ("SELECT time, title, neighborhood, address, size, firstname, lastname, medium, description from public_art join location using (location_id) join size using (size_id) join public_art_has_artist using (public_art_id) join artist using (artist_id) join public_art_has_genre using (public_art_id) join genre using (genre_id)")
 
 class Art_Database:
 	def __init__(self):
 		host = '127.0.0.1'
-		user = 'bui'
-		password = '1640601pokemon00'
+		user = 'root'
+		password = 'jill0523'
 		db = 'bosart'
 
 		self.con = mysql.connector.connect(user=user, password=password,
