@@ -4,14 +4,12 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
 
         <meta charset="UTF-8">
 
 	<title>Submit</title>
-
-
 </head>
 
 <body>
@@ -33,8 +31,8 @@
 			<h2>submit new public art</h2>
 			<div class="row">
 				<div class="col-md-12" style="padding-bottom:10px">
-					<h4>Upload image*</h4>
-					<input class="form-control" id="image" name="Upload image file" type="file">
+					<h4>Upload image URL</h4>
+					<input class="form-control" id="image-url" name="image-url" placeholder="image URL" type="text">
 				</div>
 			</div>
 
@@ -84,25 +82,31 @@
 					</div>
 					</form>
 				</div>
+			</div>
 
 			<div class="row">
 				<div class="col-sm-12" style="padding-bottom:30px;">
 				<button class="btn btn-primary pull-right" type="submit">Submit</button>
 				</div>
-			</div>	
+			</div>
+		</div>
 
-		</div>
-		</div>
 		<!-- How to Submit -->
 		<div class="col-md-4" style="padding-bottom:30px;">
-		
-			<h3>How to submit:</h3>
-			<p>Please fill out the submission form to the best of your ability. Fields marked by an asterisk are required, but it is recommended that as many fields as possible be completed.</p>
-		</div>
 
+			<h3>How to submit:</h3>
+			<p>Our platform is always looking for new works of public art in Boston
+				so that we can share it with more users who are looking to discover all
+				the art that Boston has. Have you discovered new art in the Greater
+				Boston Area? Let us know by submitting the work here!<br>Please fill
+				out the submission form to the best of your ability.
+				Fields marked by an asterisk are required, but it is recommended that as
+				 many fields as possible be completed.</p>
+		</div>
 	</div>
 	</div>
-	
+	</div>
+
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center">
 		<p>© boston art 2018 | all rights reserved</P.

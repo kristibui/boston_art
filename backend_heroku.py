@@ -7,10 +7,10 @@ select_public_art_query = ("SELECT extract(year from time), title, neighborhood,
 
 class Art_Database:
 	def __init__(self):
-		host = '127.0.0.1'
-		user = 'bui'
-		password = '1640601pokemon00'
-		db = 'bosart'
+		host = 'us-cdbr-iron-east-01.cleardb.net'
+		user = 'b65679bc605b8c'
+		password = 'fb93e908'
+		db = 'heroku_2a0b1ef412ebc17'
 
 		self.con = mysql.connector.connect(user=user, host=host, password=password, database=db)
 

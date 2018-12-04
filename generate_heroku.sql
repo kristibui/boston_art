@@ -1,51 +1,30 @@
--- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- Modified query to allow to work with clearDB:
 
--- -----------------------------------------------------
--- Schema bosart
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `bosart` ;
+use heroku_2a0b1ef412ebc17;
 
--- -----------------------------------------------------
--- Schema bosart
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `bosart` DEFAULT CHARACTER SET utf8 ;
-USE `bosart` ;
+SET @@auto_increment_increment=1;
 
--- -----------------------------------------------------
--- Table `bosart`.`location`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`location` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`location` (
+-- creating table 'location'
+DROP TABLE IF EXISTS `location`;
+CREATE TABLE IF NOT EXISTS `location` (
   `location_id` INT NOT NULL AUTO_INCREMENT,
   `neighborhood` VARCHAR(50) NOT NULL,
   `address` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`location_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`size`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`size` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`size` (
+-- creating table 'size'
+DROP TABLE IF EXISTS `size`;
+CREATE TABLE IF NOT EXISTS `size` (
   `size_id` INT NOT NULL AUTO_INCREMENT,
   `size` ENUM('small', 'medium', 'large', 'extra large') NOT NULL,
   PRIMARY KEY (`size_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`public_art`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`public_art` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`public_art` (
+-- creating table 'public_art'
+DROP TABLE IF EXISTS `public_art`;
+CREATE TABLE IF NOT EXISTS `public_art` (
   `public_art_id` INT NOT NULL AUTO_INCREMENT,
   `existence` TINYINT NOT NULL,
   `time` DATETIME NULL,
@@ -59,35 +38,27 @@ CREATE TABLE IF NOT EXISTS `bosart`.`public_art` (
   INDEX `fk_public_art_size1_idx` (`size_id` ASC),
   CONSTRAINT `fk_public_art_location`
     FOREIGN KEY (`location_id`)
-    REFERENCES `bosart`.`location` (`location_id`)
+    REFERENCES `location` (`location_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_public_art_size1`
     FOREIGN KEY (`size_id`)
-    REFERENCES `bosart`.`size` (`size_id`)
+    REFERENCES `size` (`size_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`genre`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`genre` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`genre` (
+-- creating table 'genre'
+DROP TABLE IF EXISTS `genre`;
+CREATE TABLE IF NOT EXISTS `genre` (
   `genre_id` INT NOT NULL AUTO_INCREMENT,
   `medium` VARCHAR(30) NULL,
   PRIMARY KEY (`genre_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`artist`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`artist` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`artist` (
+-- creating table 'artist'
+DROP TABLE IF EXISTS `artist`;
+CREATE TABLE IF NOT EXISTS `artist` (
   `artist_id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(30) NULL,
   `lastname` VARCHAR(30) NULL,
@@ -97,13 +68,9 @@ CREATE TABLE IF NOT EXISTS `bosart`.`artist` (
   PRIMARY KEY (`artist_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`public_art_has_artist`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`public_art_has_artist` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`public_art_has_artist` (
+-- creating table 'public_art_has_artist'
+DROP TABLE IF EXISTS `public_art_has_artist`;
+CREATE TABLE IF NOT EXISTS `public_art_has_artist` (
   `public_art_id` INT NOT NULL,
   `artist_id` INT NOT NULL,
   PRIMARY KEY (`public_art_id`, `artist_id`),
@@ -111,23 +78,19 @@ CREATE TABLE IF NOT EXISTS `bosart`.`public_art_has_artist` (
   INDEX `fk_public_art_has_artist_public_art1_idx` (`public_art_id` ASC),
   CONSTRAINT `fk_public_art_has_artist_public_art1`
     FOREIGN KEY (`public_art_id`)
-    REFERENCES `bosart`.`public_art` (`public_art_id`)
+    REFERENCES `public_art` (`public_art_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_public_art_has_artist_artist1`
     FOREIGN KEY (`artist_id`)
-    REFERENCES `bosart`.`artist` (`artist_id`)
+    REFERENCES `artist` (`artist_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `bosart`.`public_art_has_genre`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bosart`.`public_art_has_genre` ;
-
-CREATE TABLE IF NOT EXISTS `bosart`.`public_art_has_genre` (
+-- creating table 'public_art_has_genre'
+DROP TABLE IF EXISTS `public_art_has_genre`;
+CREATE TABLE IF NOT EXISTS `public_art_has_genre` (
   `public_art_id` INT NOT NULL,
   `genre_id` INT NOT NULL,
   PRIMARY KEY (`public_art_id`, `genre_id`),
@@ -135,28 +98,17 @@ CREATE TABLE IF NOT EXISTS `bosart`.`public_art_has_genre` (
   INDEX `fk_public_art_has_genre_public_art1_idx` (`public_art_id` ASC),
   CONSTRAINT `fk_public_art_has_genre_public_art1`
     FOREIGN KEY (`public_art_id`)
-    REFERENCES `bosart`.`public_art` (`public_art_id`)
+    REFERENCES `public_art` (`public_art_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_public_art_has_genre_genre1`
     FOREIGN KEY (`genre_id`)
-    REFERENCES `bosart`.`genre` (`genre_id`)
+    REFERENCES `genre` (`genre_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-
-
-
-use bosart;
-
-
+-- inserting data:
 insert into artist(firstname, lastname) values 
 ('Augustus', 'Saint-Gaudens'),
 ('Stanley', 'Saitowitz'), 
