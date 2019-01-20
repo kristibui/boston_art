@@ -2,9 +2,17 @@ body {
 	background-color: lavender;
 }
 
+.bg-4 {
+	background-color: #949ff7;
+	color: #FFFFFF;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
 .jumbotron {
 	position: relative;
 	background-size: cover;
+	margin-bottom: 0;
 	background-color: #949ff7;
 	color: #FFFFFF;
 }
@@ -33,14 +41,6 @@ h4 {
 
 p {
 	font-family: "Helvetica Neue";
-}
-
-
-.bg-4 {
-	background-color: #949ff7;
-	color: #FFFFFF;
-	padding-top: 50px;
-	padding-bottom: 50px;
 }
 
 #art_img {

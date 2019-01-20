@@ -6,15 +6,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}"
-	type="text/css">
-
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
 	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}"
+	type="text/css">
 
 	<meta charset="UTF-8">
 	<title>Home</title>
 </head>
+
 <!-- Body -->
 <body>
 
@@ -23,11 +24,193 @@
 
 		<h1>boston public art</h1>
 		<p>Discover new art in Boston, completely free.</p>
-		<p><a id="art_img" href="{{ url_for('paintings') }}">home</a>
+		<p><a href="{{ url_for('paintings') }}">home</a>
 			<a href="{{ url_for('about') }}">about</a>
 			<a href="{{ url_for('submit') }}">submit</a></p>
 
 	</div>
+
+	<! -- Horizontal Drop Down Panel for Filtering -->
+	<div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <h4><a data-toggle="collapse" style="padding-left: 30px; color: #949ff7;"
+					href="#collapse1"><i class="fas fa-search" style="color: #949ff7;"></i> Filter</a></h4>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+
+        <div class="container-fluid">
+        <div class="row">
+        	<div class="col-sm-4" style="padding-left: 30px; padding-right: 30px;">
+            	<h4>Sizes</h4>
+
+
+  					<form action="{{ url_for('filter') }}" method="post">
+    					<div class="radio">
+      						<label><input type="radio" name="filter" value="small">Small</label>
+    					</div>
+    					<div class="radio">
+      						<label><input type="radio" name="filter" value="medium">Medium</label>
+    					</div>
+    					<div class="radio">
+      					<label><input type="radio" name="filter" value="large">Large</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="extralarge">Extra Large</label>
+    				</div>
+
+
+            </div>
+
+            <div class="col-sm-4" style="padding-left: 30px; padding-right: 30px;">
+            	<h4>Genre</h4>
+
+    					<div class="radio">
+      						<label><input type="radio" name="filter"
+										value="memorial">Memorial</label>
+    					</div>
+    					<div class="radio">
+      						<label><input type="radio" name="filter"
+										value="sculpture">Sculpture</label>
+    					</div>
+    					<div class="radio">
+      					<label><input type="radio" name="filter"
+									value="graffiti">Graffiti</label>
+    				</div>
+							<div class="radio">
+								<label><input type="radio" name="filter"
+									value="statue">Statue</label>
+								</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="mural">Mural</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="vehicle">Vehicle</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="historicsite">Historical Site</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="sign">Sign</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="bench">Bench</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="kineticart">Kinetic Art</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="plaque">Plaque</label>
+    				</div>
+
+
+            </div>
+            <div class="col-sm-4" style="padding-left: 30px; padding-right: 30px;">
+            	<h4>Neighborhood</h4>
+
+    					<div class="radio">
+      						<label><input type="radio" name="filter"
+										value="beaconhill">Beacon Hill</label>
+    					</div>
+    					<div class="radio">
+      						<label><input type="radio" name="filter"
+										value="southboston">South Boston</label>
+    					</div>
+    					<div class="radio">
+      					<label><input type="radio" name="filter"
+									value="backbay">Back Bay</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="cambridge">Cambridge</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="saugus">Saugus</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="southend">South End</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="boston">Boston</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="fenway">Fenway</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="dorchester">Dorchester</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="jamaicaplain">Jamaica Plain</label>
+    				</div>
+
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="charlestown">Charlestown</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="eastboston">East Boston</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="roxbury">Roxbury</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="eastcambridge">East Cambridge</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="downtown">Downtown</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="bunkerhill">Bunker Hill</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="chinatown">Chinatown</label>
+    				</div>
+                    <div class="radio">
+      					<label><input type="radio" name="filter"
+									value="somerville">Somerville</label>
+    				</div>
+
+						<input type="submit" value="Submit">
+  					</form>
+
+            </div>
+
+        </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<!-- Submission Confirmation -->
+
+	{% if submission_successful %}
+	<h2 style="padding-left: 30px;">Submission successful</h2>
+	{% endif %}
 
 	<!-- Artist information -->
 
@@ -47,14 +230,24 @@
 			</div>
 			<div id="artist_descr" class="col-md-6" style="padding-left:30px; padding-right:30px;">
 
+				<!-- If artist is unknown, print that -->
+				{% if row[5] is none %}
+				<h4>Artist unknown</h4>
+				{% else %}
 				<h4>By {{ row[5] }} {{ row[6] }}</h4>
+				{% endif %}
+
 				<h5><i class="fas fa-map-marker-alt"></i> {{ row[3] }}</h5>
 				<h5>Find it at the {{ row[2] }} neighborhood</h5><br>
 				<h5><b>Description</b></h5>
 
 				{{ row [8] }}<br><br>
 
+				{% if row[0] is none %}
+				<b>Date created unknown</b>
+				{% else %}
 				<b>Created in:</b> {{ row[0] }}
+				{% endif %}
 				<br><br>
 				<b>Art Features:</b><br>
 				<p><b><i class="fas fa-paint-brush"></i> Size:</b> {{ row[4] }}<br>

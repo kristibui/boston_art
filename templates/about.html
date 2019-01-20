@@ -8,6 +8,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
+				<link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}"
+				type="image/x-icon">
 
         <meta charset="UTF-8">
 </head>
@@ -30,7 +32,7 @@
 
 		<div class="col-md-12" style="padding-left: 50px; padding-bottom: 30px;">
 			<h2><b>about</b></h2>
-			<br>	
+			<br>
 			<p>Interested in discovering new, free art in Boston? Looking to learn more about the unique art that makes up the different neighborhoods of Boston? Need a fun, free activity to do with friends and/or loved ones? The Boston Public Art database can help.<br>
 This is a web application where you can discover new public art in the Greater Boston Area. Learn more about the art created in the Boston area and what works of art you can discover in the different neighborhoods in this city.<br><br>
 			Built as the final project of <i>Fall 2018 CS3200 Database Design</i> at Northeastern University.</p>
@@ -51,7 +53,7 @@ This is a web application where you can discover new public art in the Greater B
 
 		<div id="about_photo" class="col-md-3">
 			<img id="about_photo" src="{{ url_for('static', filename='27.jpg') }}">
-		</div>		
+		</div>
 
 		<div id="about_photo" class="col-md-3">
 			<img id="about_photo" src="{{ url_for('static', filename='11.jpg') }}">

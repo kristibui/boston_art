@@ -18,35 +18,48 @@
 	<div class="jumbotron text-center">
 		<h1>boston public art</h1>
 		<p>Discover new art in Boston, completely free.</p>
-		<p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>  <a href="{{ url_for('submit') }}">submit</a></p>
+		<p><a href="{{ url_for('paintings') }}">home</a>  <a href="{{ url_for('about') }}">about</a>
+			<a href="{{ url_for('submit') }}">submit</a></p>
 	</div>
-
 
 	<!-- Submit -->
 	<div class="container-fluid">
-
 	<div class="row">
 
 		<div id="submit" class="col-md-8">
 			<h2>submit new public art</h2>
 			<div class="row">
+				<form action="{{ url_for('insert') }}" method="post">
 				<div class="col-md-12" style="padding-bottom:10px">
 					<h4>Upload image URL</h4>
-					<input class="form-control" id="image-url" name="image-url" placeholder="image URL" type="text">
+
+					<input class="form-control" id="image-url" name="image" placeholder="image URL" type="text">
 				</div>
 			</div>
 
 			<div class="row">
+			<div class="col-md-12" style="padding-bottom:10px">
+				<h4>Art Title</h4>
+
+				<input class="form-control" id="image-url" name="title" placeholder="work title" type="text">
+			</div>
+		</div>
+
+			<div class="row">
 				<div class="col-md-12" style="padding-bottom:10px;">
-					<h4>Description</h4>
+					<h4>Art Description</h4>
 					<textarea class="form-control" id="description" name="description" placeholder="Description" rows="5"></textarea>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md-12" style="padding-bottom:10px;">
-					<h4>Artist*</h4>
-					<input class="form-control" id="artist" name="artist" placeholder="artist" type="text" required>
+				<div class="col-md-6" style="padding-bottom:10px;">
+					<h4>Artist First Name</h4>
+					<input class="form-control" id="artist" name="artistfirst" placeholder="artistfirst" type="text">
+				</div>
+				<div class="col-md-6" style="padding-bottom:10px;">
+					<h4>Artist Last Name</h4>
+					<input class="form-control" id="artist" name="artistlast" placeholder="artistlast" type="text">
 				</div>
 			</div>
 
@@ -56,14 +69,14 @@
 					<input class="form-control" id="location" name="location" placeholder="location" type="text" required>
 				</div>
 				<div class="col-md-4" style="padding-bottom:10px;">
-				<h4>Neighborhood</h4>
-					<input class="form-control" id="neighborhood" name="neighborhood" placeholder="neighborhood" type="text">
+				<h4>Neighborhood*</h4>
+					<input class="form-control" id="neighborhood" name="neighborhood" placeholder="neighborhood" type="text" required>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-4" style="padding-bottom:10px; padding-right:10px;">
-				<h4>Date Created</h4>
+				<h4>Year Created</h4>
 					<input class="form-control" id="date" name="date" placeholder="date" type="text">
 				</div>
 				<div class="col-md-4" style="padding-bottom:10px; padding-right:10px;">
@@ -72,22 +85,24 @@
 				</div>
 				<div class="col-md-4" style="padding-bottom:10px; padding-right:10px;">
 				<h4>Size</h4>
-					<form><div class="form-group">
-						<select class="form-control" id="formControlSelect1">
+					<div class="form-group">
+						<select class="form-control" id="formControlSelect1" name="size" type="size">
 						  <option>small</option>
 						  <option>medium</option>
 						  <option>large</option>
 						  <option>extra large</option>
 						</select>
 					</div>
-					</form>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-sm-12" style="padding-bottom:30px;">
+
 				<button class="btn btn-primary pull-right" type="submit">Submit</button>
 				</div>
+			</form>
+
 			</div>
 		</div>
 
